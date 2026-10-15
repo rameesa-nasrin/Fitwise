@@ -1,0 +1,66 @@
+#api call for signup-creating user account
+###
+POST http://127.0.0.1:8000/nutrition/signup/
+Content-Type: application/json
+
+{
+    "username":"tom",
+    "email":"tom@gmail.com",
+    "password":"tom@123"
+}
+
+
+#api call for get current user detail
+###
+GET http://127.0.0.1:8000/nutrition/me/
+Accept: application/json
+Authorization: Basic rameesa:rameesa@123
+
+
+#api call to get token -token generation
+###
+POST http://127.0.0.1:8000/nutrition/token/
+Content-Type: application/json
+
+{
+    "username":"rameesa",
+    "password":"rameesa@123"
+}
+
+
+
+# rameesa ---> "token": "fda45c0897d0344e5d2701356e89507f7f9a4db0"
+# tom ---> "token": "2b7fcfe954babc011a686b2d52129e74c670b7d6"
+
+
+
+
+ #  ================FOOD LOG API CALLS==========================
+
+
+# for listing al foodlogs
+###
+GET http://127.0.0.1:8000/nutrition/foodlogs/
+Accept: application/json
+Authorization: Token fda45c0897d0344e5d2701356e89507f7f9a4db0
+
+
+#for creating foodlog
+###
+POST http://127.0.0.1:8000/nutrition/foodlogs/
+Content-Type: application/json
+Authorization: Token 2b7fcfe954babc011a686b2d52129e74c670b7d6
+
+{
+    "title":"dosa with chutney",
+    "calorie":350,
+    "meal_type":"DINNER",
+    "serving_size":"2 dosas"
+}
+
+
+#api call for fetching foodlog
+###
+GET http://127.0.0.1:8000/nutrition/foodlogs/6/
+Accept: application/json
+Authorization: Token 2b7fcfe954babc011a686b2d52129e74c670b7d6
