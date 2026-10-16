@@ -42,7 +42,7 @@ Content-Type: application/json
 ###
 GET http://127.0.0.1:8000/nutrition/foodlogs/
 Accept: application/json
-Authorization: Token fda45c0897d0344e5d2701356e89507f7f9a4db0
+Authorization: Token 2b7fcfe954babc011a686b2d52129e74c670b7d6
 
 
 #for creating foodlog
@@ -52,15 +52,53 @@ Content-Type: application/json
 Authorization: Token 2b7fcfe954babc011a686b2d52129e74c670b7d6
 
 {
-    "title":"dosa with chutney",
-    "calorie":350,
-    "meal_type":"DINNER",
-    "serving_size":"2 dosas"
+    "title":"dal",
+    "calorie":100,
+    "meal_type":"LUNCH",
+    "serving_size":"1 cup"
 }
 
 
 #api call for fetching foodlog
 ###
-GET http://127.0.0.1:8000/nutrition/foodlogs/6/
+GET http://127.0.0.1:8000/nutrition/foodlogs/1/
 Accept: application/json
 Authorization: Token 2b7fcfe954babc011a686b2d52129e74c670b7d6
+
+
+#api call for updating foodlog
+###
+PUT http://127.0.0.1:8000/nutrition/foodlogs/6/
+Content-Type: application/json
+Authorization: Token 2b7fcfe954babc011a686b2d52129e74c670b7d6
+
+{
+  "id": 6,
+  "owner": "tom",
+  "title": "egg",
+  "calorie": 150,
+  "meal_type": "BREAKFAST",
+  "serving_size": "3 eggs",
+  "created_at": "2026-10-14T17:38:28.328510Z"
+}
+
+#api call for deleting expense
+###
+DELETE http://127.0.0.1:8000/nutrition/foodlogs/10/
+Accept: application/json
+Authorization: Token 2b7fcfe954babc011a686b2d52129e74c670b7d6
+
+
+#api call for foodlog-summary
+###
+GET http://127.0.0.1:8000/nutrition/foodlogs/summary/
+Accept: application/json
+Authorization: Token 2b7fcfe954babc011a686b2d52129e74c670b7d6
+
+
+#api call for dietplan
+###
+GET http://127.0.0.1:8000/nutrition/foodlogs/dietplan/
+Accept: application/json
+Authorization: Token 2b7fcfe954babc011a686b2d52129e74c670b7d6
+
